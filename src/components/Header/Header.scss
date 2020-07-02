@@ -1,0 +1,27 @@
+.header {
+    min-height: 30vh;
+    background-image: url('../../assets/img/header-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.header__logo-wrap {
+    width: 212px;
+    margin: 0 auto;
+
+    img {
+        display: block;
+        width: 100%;
+    }
+
+    @media (min-width: 800px) {
+        width: 406px;
+    }
+}

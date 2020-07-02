@@ -1,0 +1,19 @@
+.footer {
+    min-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #1A1A1A;
+
+    p {
+        color: #ffffff;
+        width: 200px;
+        text-align: center;
+        
+        @media (min-width: 600px) {
+            width: 600px;
+        }
+    }
+}
