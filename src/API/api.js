@@ -7,12 +7,12 @@ const instance = axios.create({
 
 export const API = {
     getPeoples(page = 1) {
-        return instance.get(`people/?page=${page}`)
+        return axios.get(`https://swapi.dev/api/people/?page=${page}`)
     },
 
     getInfo(url) {
-      
-            return axios.get(url)
-        
+
+        return axios.get(url)
+
     }
 }

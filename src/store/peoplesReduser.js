@@ -5,6 +5,7 @@ const IS_LOADING = 'IS_LOADING';
 
 let initialState = {
     data: [],
+    maxPages: null,
     isLoading: true
 }
 
@@ -14,7 +15,8 @@ const peoplesReduser = (state = initialState, action) => {
         case GET_PEOPLES_SUCCESS:
             return {
                 ...state,
-                data: state.data.concat(action.payload)
+                data: state.data.concat(action.payload.peoples),
+                maxPages: Math.ceil(action.payload.total/10),
             }
 
         case IS_LOADING:
@@ -28,16 +30,26 @@ const peoplesReduser = (state = initialState, action) => {
     }
 }
 
-export const getPeoplesSuccess = (data) => ({ type: GET_PEOPLES_SUCCESS, payload: data });
-export const isPeopleLoading = () => ({ type: IS_LOADING });
+
+
+export const getPeoplesSuccess = (data, totalPeoples) => {
+    return {
+      type: GET_PEOPLES_SUCCESS,
+      payload: {
+        peoples: data,
+        total: totalPeoples
+      },
+    }
+  }
+
+export const isLoading = () => ({ type: IS_LOADING });
 
 
 export const getPeoples = (page) => {
     return async dispatch => {
         let res = await API.getPeoples(page)
-        dispatch(getPeoplesSuccess(res.data.results))
-
-        dispatch(isPeopleLoading())
+        dispatch(getPeoplesSuccess(res.data.results, res.data.count))
+        dispatch(isLoading())
     }
 }
 

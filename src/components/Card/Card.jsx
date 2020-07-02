@@ -5,25 +5,24 @@ import { API } from '../../API/api';
 
 const Card = (props) => {
 
-    let [species, setSpecies] = useState(props.species)
+    let [species, setSpecies] = useState('')
+    let url = props.species
 
 
-
-/*     useEffect(() => {
-        if (species.length > 0 && species !== undefined) {
+    useEffect(() => {
+        if (url.length > 0 && url !== undefined) {
             let fetchData = async () => {
-                let result = await API.getInfo(species);
-                
+                let result = await API.getInfo(url);
+
                 setSpecies(result.data.name);
             }
-
-            fetchData()
+            fetchData();
 
         } else {
             setSpecies('Unknown')
         }
 
-    }, [species]) */
+    }, [species, url])
 
     return (
         <li className="card">

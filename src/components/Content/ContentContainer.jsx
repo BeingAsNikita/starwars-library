@@ -14,31 +14,32 @@ class ContentContainer extends React.Component {
         this.props.getPeoples(this.state.page)
     }
 
-
-
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
     }
 
     handleScroll = (event) => {
-        let scrollBottom = event.target.scrollTop +
-            event.target.offsetHeight == event.target.scrollHeight;
-
-        console.log(event.target + " " + event.target.offsetHeight + " " + event.target.scrollHeight)
+        if (event.target.body.getBoundingClientRect().bottom < 700) {
+            this.handleChangePage()
+        }
     }
 
     handleChangePage = () => {
-        let nextPage = this.state.page + 1;
-        this.setState({ page: nextPage })
-        this.props.getPeoples(nextPage)
-        console.log(this.state.page)
+        if (this.props.maxPages >= this.state.page) {
+            let nextPage = this.state.page + 1;
+            this.setState({ page: nextPage })
+            this.props.getPeoples(nextPage)
+        }
     }
 
     render() {
         return (
             <main className="content">
                 <Content data={this.props.data} isLoading={this.props.isLoading} />
-                <button onClick={this.handleChangePage}>Show more...</button>
+                {
+                    !this.props.isLoading && <h1>IS LOADING...</h1>
+                }
+
             </main>
 
         )
@@ -48,7 +49,8 @@ class ContentContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     data: state.peoples.data,
-    isLoading: state.peoples.isLoading
+    isLoading: state.peoples.isLoading,
+    maxPages: state.peoples.maxPages,
 })
 
 export default connect(mapStateToProps, { getPeoples })(ContentContainer);
