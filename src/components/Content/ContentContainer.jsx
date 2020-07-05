@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getPeoples } from '../../store/peoplesReduser';
+import { setModalDataSuccess } from '../../store/modalReduser';
+
 import Content from '../Content/Content';
 
 
@@ -19,7 +21,7 @@ class ContentContainer extends React.Component {
     }
 
     handleScroll = (event) => {
-        if (event.target.body.getBoundingClientRect().bottom < 700) {
+        if (event.target.body.getBoundingClientRect().bottom < 800) {
             this.handleChangePage()
         }
     }
@@ -35,7 +37,11 @@ class ContentContainer extends React.Component {
     render() {
         return (
             <main className="content">
-                <Content data={this.props.data} isLoading={this.props.isLoading} />
+                <Content
+                    data={this.props.data}
+                    isLoading={this.props.isLoading}
+                    setModalDataSuccess={this.props.setModalDataSuccess}
+                />
                 {
                     !this.props.isLoading && <h1>IS LOADING...</h1>
                 }
@@ -53,4 +59,4 @@ let mapStateToProps = (state) => ({
     maxPages: state.peoples.maxPages,
 })
 
-export default connect(mapStateToProps, { getPeoples })(ContentContainer);
+export default connect(mapStateToProps, { getPeoples, setModalDataSuccess })(ContentContainer);

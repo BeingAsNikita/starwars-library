@@ -1,36 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../Card/Card.scss';
-import { API } from '../../API/api';
 
 
-const Card = (props) => {
+const Card = ({ data, setModalDataSuccess }) => {
 
-    let [species, setSpecies] = useState('')
-    let url = props.species
-
-
-    useEffect(() => {
-        if (url.length > 0 && url !== undefined) {
-            let fetchData = async () => {
-                let result = await API.getInfo(url);
-
-                setSpecies(result.data.name);
-            }
-            fetchData();
-
-        } else {
-            setSpecies('Unknown')
-        }
-
-    }, [species, url])
+    let openModal = () => {
+        setModalDataSuccess(data)
+    }
 
     return (
-        <li className="card">
-            <span className="card__avatar">{props.name[0]}</span>
-            <span className="card__name">{props.name}</span>
+        <li className="card" onClick={openModal}>
+            <span className="card__avatar">{data.name[0]}</span>
+            <span className="card__name">{data.name}</span>
             <span className="card__species">
                 {
-                    species
+                    data.species[0]
                 }
             </span>
         </li>

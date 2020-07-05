@@ -4,24 +4,24 @@ import Card from '../Card/Card';
 
 
 
-const Content = ({ data, isLoading }) => {
-
+const Content = ({ data, isLoading, setModalDataSuccess }) => {
     return (
-       
-            <ul className="content__card-list">
-                {
-                    isLoading
-                        ? 'Please wait...'
-                        : data.map((item) => {
-                            return <Card key={item.name} 
-                            name={item.name}
-                            species={item.species}
-                            />
-                        })
-                }
-            </ul>
-           
-       
+
+        <ul className="content__card-list">
+            {
+                isLoading
+                    ? 'Please wait...'
+                    : data.map((item) => {
+
+                        return <Card key={item.name}
+                            setModalDataSuccess={setModalDataSuccess}
+                            data={item}
+                        />
+                    })
+            }
+        </ul>
+
+
     )
 }
 
