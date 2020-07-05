@@ -11,12 +11,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className={'App' + (this.props.modal.isShow ? ' blur' : '') }>
         <Header />
         <ContentContainer />
         <Footer />
 
-        <Modal {...this.props.modal} hideModal={this.props.hideModal}/>
+        { this.props.modal.data && <Modal {...this.props.modal} hideModal={this.props.hideModal}/>}
 
       </div>
     );

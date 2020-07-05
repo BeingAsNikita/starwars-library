@@ -12,10 +12,87 @@
 }
 
 .modal-body {
-    background: #eaeaea;
-    width: 72%;
+    background: #1A1A1A;
+    color: #ffffff;
+    width: 320px;
+
+    padding: 24px;
+
     max-width: 980px;
     transition-duration: 4s;
     transition-timing-function: linear;
-    border-radius: 3px;
+    border-radius: 3px; 
+
+    @media (min-width: 1200px) {
+        width: 800px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    
+    .card__name {
+        margin-left: 16px;
+        font-size: 22px;
+    }
+}
+
+.modal-header {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    border-bottom: 2px solid #808080;
+    position: relative;
+}
+
+.modal_close {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+
+    @media (min-width: 1200px) {
+        right: -60px;
+
+    }
+
+}
+
+.modal_close svg:hover path {
+    fill: red
+}
+
+.modal-footer {
+    list-style: none;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.modal__item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    span {
+        display: block;
+    }
+
+}
+
+.modal__item-title {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    img {
+        margin-right: 11px;
+    }
 }

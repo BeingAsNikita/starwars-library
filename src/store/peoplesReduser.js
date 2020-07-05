@@ -17,7 +17,6 @@ let initialState = {
 const peoplesReduser = (state = initialState, action) => {
     switch (action.type) {
         case GET_PEOPLES_SUCCESS:
-            console.log(getDataFromArray(action.payload.peoples[0]['films']))
 
             return {
                 ...state,
