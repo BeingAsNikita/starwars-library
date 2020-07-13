@@ -17,5 +17,13 @@ export const API = {
             console.log(error)
         }
 
+    },
+    
+    getPeoplesFromSearch(text) {
+        try {
+            return instance.get(`people/?search=${text}`)
+        } catch (error) {
+            console.log(error)
+        }
     }
 }

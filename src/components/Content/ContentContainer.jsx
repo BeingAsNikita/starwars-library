@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getPeoples } from '../../store/peoplesReduser';
-import { setModalDataSuccess } from '../../store/modalReduser';
+import { getPeoples, getDataFromSearching } from '../../store/peoplesReduser';
+import { setModalData,setSpeciesThunk } from '../../store/modalReduser';
 
 import Content from '../Content/Content';
+import Search from '../Search/Search';
 
 
 class ContentContainer extends React.Component {
@@ -27,7 +28,7 @@ class ContentContainer extends React.Component {
     }
 
     handleChangePage = () => {
-        if (this.props.maxPages >= this.state.page) {
+        if (this.props.maxPages > this.state.page) {
             let nextPage = this.state.page + 1;
             this.setState({ page: nextPage })
             this.props.getPeoples(nextPage)
@@ -37,13 +38,15 @@ class ContentContainer extends React.Component {
     render() {
         return (
             <main className="content">
+                <Search getDataFromSearching={this.props.getDataFromSearching}/>
                 <Content
                     data={this.props.data}
                     isLoading={this.props.isLoading}
-                    setModalDataSuccess={this.props.setModalDataSuccess}
+                    setModalData={this.props.setModalData}
+                    setSpeciesThunk={this.props.setSpeciesThunk}
                 />
                 {
-                    !this.props.isLoading && <h1>IS LOADING...</h1>
+                    this.props.isLoading &&  <h1>IS LOADING...</h1>
                 }
 
             </main>
@@ -59,4 +62,4 @@ let mapStateToProps = (state) => ({
     maxPages: state.peoples.maxPages,
 })
 
-export default connect(mapStateToProps, { getPeoples, setModalDataSuccess })(ContentContainer);
+export default connect(mapStateToProps, { getPeoples, setModalData, setSpeciesThunk, getDataFromSearching })(ContentContainer);

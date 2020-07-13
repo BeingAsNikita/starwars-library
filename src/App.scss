@@ -8,6 +8,10 @@ body {
   position: relative;
 }
 
+.scrolling-stop {
+  overflow: hidden;
+}
+
 .App {
   min-height: 100vh;
   background-color: #333333;

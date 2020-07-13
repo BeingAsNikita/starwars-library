@@ -17,6 +17,7 @@ class App extends React.Component {
         <Footer />
 
         { this.props.modal.data && <Modal {...this.props.modal} hideModal={this.props.hideModal}/>}
+        
 
       </div>
     );

@@ -4,7 +4,7 @@ import Card from '../Card/Card';
 
 
 
-const Content = ({ data, isLoading, setModalDataSuccess }) => {
+const Content = ({ data, isLoading, setModalData, setSpeciesThunk }) => {
     return (
 
         <ul className="content__card-list">
@@ -14,7 +14,8 @@ const Content = ({ data, isLoading, setModalDataSuccess }) => {
                     : data.map((item) => {
 
                         return <Card key={item.name}
-                            setModalDataSuccess={setModalDataSuccess}
+                        setModalData={setModalData}
+                        setSpeciesThunk={setSpeciesThunk}
                             data={item}
                         />
                     })

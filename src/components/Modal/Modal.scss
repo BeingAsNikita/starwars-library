@@ -9,6 +9,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
+
 }
 
 .modal-body {
@@ -36,7 +38,7 @@
 }
 
 .modal-header {
-    padding-top: 48px;
+    padding-top: 24px;
     padding-bottom: 48px;
     display: flex;
     flex-direction: row;
@@ -51,24 +53,28 @@
     border: none;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -20px;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
+
 
     @media (min-width: 1200px) {
         right: -60px;
+        
 
     }
 
 }
 
-.modal_close svg:hover path {
-    fill: red
+.modal_close svg:hover path{
+    stroke: red;
 }
 
 .modal-footer {
     list-style: none;
     padding-top: 48px;
-    padding-bottom: 48px;
+    padding-bottom: 24px;
 }
 
 .modal__item {

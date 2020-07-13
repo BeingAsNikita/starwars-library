@@ -1,40 +1,21 @@
 import { API } from "../API/api";
 
-
-
-const anAsyncFunction = async url => {
-    return API.getInfo(url)
-}
-
-export const getDataFromArray = async (arr) => {
-    return Promise.all(arr.map(async url => anAsyncFunction(url))).then(data => {
-    debugger
-
-        return data.map(item => item.data.title)
-    })
-}
-
-export const getInfo = async (obj) => {
-    let newObj = { ...obj }
-    for (let key in newObj) {
-        if (Array.isArray(newObj[key])) {
-            if (newObj[key].length > 0) {
-                console.log(newObj[key])
-                newObj[key] = await getDataFromArray(newObj[key])
-
-            } else {
-                newObj[key] = 'UNKNOWN'
-            }
-        }
+export const getDataFromArray = async (arr, name) => {
+    if(arr.length > 0) {
+        return await Promise.all(arr.map(async url =>  API.getInfo(url))).then(data => {
+            return  data.map(item => item.data[name])
+        })
     }
-    return newObj
-}
+    
+    return 'Unknown'
+}   
 
-export const updateObjectInArray = (items, itemId, objPropName, newObjProps) => {
-    return items.map(u => {
-        if (u[objPropName] === itemId) {
-            return { ...u, ...newObjProps }
-        }
-        return u
-    })
+
+export const debounce = ( callback, data, delay ) => {
+    debugger
+    let timeout;
+    return () => {
+        clearTimeout( timeout );
+        timeout = setTimeout( callback(data), delay );
+    }
 }

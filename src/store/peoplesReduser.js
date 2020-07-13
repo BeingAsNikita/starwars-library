@@ -1,9 +1,9 @@
 import { API } from '../API/api'
-import { findLinks, getDataFromArray, getInfo } from '../utils/objectsHelper';
 
 const GET_PEOPLES_SUCCESS = 'GET_PEOPLES_SUCCESS';
 const IS_LOADING = 'IS_LOADING';
 const GET_INFO_FROM_ARRAY = 'GET_INFO_FROM_ARRAY';
+const GET_DATA_FROM_SEARCHING = "GET_DATA_FROM_SEARCHING"
 
 let initialState = {
     data: [],
@@ -31,16 +31,22 @@ const peoplesReduser = (state = initialState, action) => {
                 isLoading: false
             }
 
-        /* case GET_INFO_FROM_ARRAY:
-           debugger
-           console.log(state.data[0]) [action.payload.name] 
-          return {
-              ...state,
-               data: [...state.data[0], ...state.data[0][action.payload.name]: [action.payload.data] ] 
-          }  */
+        case GET_DATA_FROM_SEARCHING: 
+        return {
+            ...state,
+            data: action.payload
+        }
+
 
         default:
             return state
+    }
+}
+
+export const getDataFromSearchingSuccess = (data) => {
+    return {
+        type: GET_DATA_FROM_SEARCHING,
+        payload: data
     }
 }
 
@@ -77,21 +83,15 @@ export const getPeoples = (page) => {
     }
 }
 
-export const getInfoThunk = (res, count) => {
+export const getDataFromSearching = (text) => {
     return async dispatch => {
-        let promise = res.map(item => getInfo(item))
-        Promise.all(promise).then( data => {
-            dispatch(getPeoplesSuccess(data, count))
-
-        })
-
-
-
-
-
-
-
+         let res = await API.getPeoplesFromSearch(text) 
+        dispatch(getDataFromSearchingSuccess(res.data.results))
+        dispatch(isLoading())
     }
 }
+
+
+
 
 export default peoplesReduser;
