@@ -7,6 +7,8 @@ import Modal from './components/Modal/Modal';
 import { connect } from 'react-redux';
 import { hideModal } from './store/modalReduser';
 
+
+
 class App extends React.Component {
 
   render() {
@@ -29,5 +31,6 @@ const mapStateToProps = (state) => ({
   peoples: state.peoples,
   modal: state.modal,
 })
+
 
 export default connect(mapStateToProps, { hideModal })(App);

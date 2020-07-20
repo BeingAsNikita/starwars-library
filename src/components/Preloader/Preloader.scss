@@ -1,0 +1,71 @@
+.preloader__wrapper {
+    width: 100%;
+    height: 60vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader {
+    width: 200px;
+    animation: 3.5s linear 1s infinite load;
+}
+
+.starship {
+    position: relative;
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        display: block;
+
+        height: 2px;
+        background-color: #6EF6FF;
+        margin-bottom: 2px;
+
+        
+    }
+
+
+    span:nth-child(2) {
+        width: 13px;
+        animation: 2s linear 1s infinite first; 
+    }
+    span:nth-child(3) {
+        width: 11px;
+        animation: 2s linear 1s infinite second; 
+    }
+    span:nth-child(4) {
+        width: 9px;
+        animation: 2s linear 1s infinite third; 
+    }
+}
+
+
+@keyframes load{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes first{
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes second{
+    0% {opacity: 1;}
+    60% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes third {
+    0% {opacity: 1;}
+    70% {opacity: 0;}
+    100% {opacity: 1;}
+}

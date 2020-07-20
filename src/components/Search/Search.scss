@@ -1,5 +1,12 @@
 .search {
     width: 80%;
     margin: 50px auto;
+    border: none;
+    background: none;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 5px;
 
+    &:focus {
+        outline: none;
+    }
 }
