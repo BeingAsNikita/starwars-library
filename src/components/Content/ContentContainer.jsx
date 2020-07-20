@@ -41,6 +41,7 @@ class ContentContainer extends React.Component {
 
     handleScroll = (event) => {
         if (event.target.body.getBoundingClientRect().bottom < 700) {
+            console.log(event.target.body.getBoundingClientRect().bottom)
             this.handleChangePage()
         }
     }
