@@ -11,7 +11,7 @@ let initialState = {
     data: [],
     maxPages: null,
     isLoading: true,
-    isSearching: false,
+    isSearching: true,
     films: null,
     modalIsOpen: false,
 }
@@ -45,7 +45,7 @@ const peoplesReduser = (state = initialState, action) => {
         case IS_SEARCHING_TOGGLE:
             return {
                 ...state,
-                isSearching: !state.isSearching
+                isSearching: action.payload
             }
 
 
@@ -84,7 +84,7 @@ export const getInfoSuccess = (data, name) => {
 }
 
 export const isLoading = () => ({ type: IS_LOADING });
-export const isSearchingToggle = () => ({ type: IS_SEARCHING_TOGGLE });
+export const isSearchingToggle = (data) => ({ type: IS_SEARCHING_TOGGLE, payload: data });
 
 
 

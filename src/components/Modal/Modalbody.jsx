@@ -17,9 +17,7 @@ const Modalbody = ({ data, closeModal }) => {
                         <div className='card__avatar'>{data.name[0]}</div>
                         <p className="card__name">{data.name}</p>
                         <button className="modal_close" onClick={closeModal}>
-                            <svg  width="14" height="14" viewBox="0 0 14 14">
-                                <path d="M1 13L13 1M13 13L1 1" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                            </svg>
+                        
                         </button>
                     </div>
                     <ul className="modal-footer">

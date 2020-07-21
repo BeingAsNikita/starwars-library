@@ -23,7 +23,7 @@ const Search = (props) => {
             <input className="search" type="text" placeholder="Search by name"
 
                 onFocus={() => {
-                    props.isSearching()
+                    props.isSearching(true)
                 }}
 
                 onKeyPress={e => {
@@ -38,7 +38,7 @@ const Search = (props) => {
                 }}
                 onBlur={() => {
                     props.getPeoples()
-                    props.isSearching()
+                    props.isSearching(false)
                 }}></input>
         </>
     )

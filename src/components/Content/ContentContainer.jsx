@@ -20,14 +20,24 @@ class ContentContainer extends React.Component {
     }
 
     componentDidMount() {
+        this.props.getPeoples(this.state.page)   
         if (!this.props.isSearching) {
+            debugger
             window.addEventListener('scroll', this.handleScroll);
-            this.props.getPeoples(this.state.page)          
+               
         }
         this.timerHandle = setTimeout(() => {
             this.props.setInitializedSuccess()
         }, 3000)
 
+    }
+    
+    componentDidUpdate() {
+        if (!this.props.isSearching) {
+      
+            window.addEventListener('scroll', this.handleScroll);
+               
+        }
     }
 
     componentWillUnmount() {

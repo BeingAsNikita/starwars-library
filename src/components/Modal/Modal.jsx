@@ -18,7 +18,7 @@ const Modal = ({ data, isShow, hideModal, isLoading }) => {
 
 
     return (
-        isShow && <Portal>
+        isShow  && <Portal>
             <div className="modal-wrapper" onClick={closeModal}>
 
             {isLoading 

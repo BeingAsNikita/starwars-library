@@ -23,6 +23,7 @@ const modalReduser = (state = initialState, action) => {
                 ...state,
                 data: action.payload,
                 isShow: true,
+                isLoading: false
             }
 
         case HIDE_MODAL:
@@ -71,17 +72,7 @@ export const hideModal = () => ({ type: HIDE_MODAL });
 
 export const setModalData = (data) => {
     return async dispatch => {
-
-        /* let speciesPromise = await getDataFromArray(data.species, 'name') */
-        /* let homeworldPromise =  API.getInfo(data.homeworld) */
-        /*     let filmsPromise =  getDataFromArray(data.films, 'title') */
-        /* let species = await speciesPromise; */
-        /* let homeworld = await homeworldPromise;  */
-        /* let films = await filmsPromise;  */
         dispatch(setModalDataSuccess(data))
-        /* dispatch(setSpecies(speciesPromise)) */
-        /* dispatch(setHomeword(homeworld.data.name))  */
-        /* dispatch(setFilms(films))   */
         dispatch(setSpeciesThunk(data))
     }
 }

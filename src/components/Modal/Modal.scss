@@ -17,20 +17,21 @@
     background: #1A1A1A;
     color: #ffffff;
     width: 320px;
-
+    position: absolute;
+    top: 0;
     padding: 24px;
 
     max-width: 980px;
     transition-duration: 4s;
     transition-timing-function: linear;
-    border-radius: 3px; 
+    border-radius: 3px;
 
     @media (min-width: 1200px) {
         width: 800px;
         padding-left: 80px;
         padding-right: 80px;
     }
-    
+
     .card__name {
         margin-left: 16px;
         font-size: 22px;
@@ -55,19 +56,43 @@
     top: 0;
     right: -20px;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 19px;
+        height: 2px;
+        background: #ffffff;
+        top: 50%;
+        left: 6px;
+    }
 
+    &::before {
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+
+    &:hover {
+
+        &::before,
+        &::after {
+            background-color: darken(#fff, 50%);
+        }
+    }
 
     @media (min-width: 1200px) {
         right: -60px;
-        
-
     }
 
 }
 
-.modal_close svg:hover path{
+.modal_close svg:hover path {
     stroke: red;
 }
 
