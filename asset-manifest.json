@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/starwars-library/static/css/main.9ad37f33.chunk.css",
+    "main.js": "/starwars-library/static/js/main.33ff2b69.chunk.js",
+    "main.js.map": "/starwars-library/static/js/main.33ff2b69.chunk.js.map",
+    "runtime-main.js": "/starwars-library/static/js/runtime-main.27562d3c.js",
+    "runtime-main.js.map": "/starwars-library/static/js/runtime-main.27562d3c.js.map",
+    "static/js/2.f463eb6d.chunk.js": "/starwars-library/static/js/2.f463eb6d.chunk.js",
+    "static/js/2.f463eb6d.chunk.js.map": "/starwars-library/static/js/2.f463eb6d.chunk.js.map",
+    "index.html": "/starwars-library/index.html",
+    "precache-manifest.33f5165fafe492b8a898bcd13228f3a8.js": "/starwars-library/precache-manifest.33f5165fafe492b8a898bcd13228f3a8.js",
+    "service-worker.js": "/starwars-library/service-worker.js",
+    "static/css/main.9ad37f33.chunk.css.map": "/starwars-library/static/css/main.9ad37f33.chunk.css.map",
+    "static/js/2.f463eb6d.chunk.js.LICENSE.txt": "/starwars-library/static/js/2.f463eb6d.chunk.js.LICENSE.txt",
+    "static/media/birth_year.svg": "/starwars-library/static/media/birth_year.63f0c901.svg",
+    "static/media/films.svg": "/starwars-library/static/media/films.33cdf1af.svg",
+    "static/media/gender.svg": "/starwars-library/static/media/gender.65d3aac9.svg",
+    "static/media/Header.scss": "/starwars-library/static/media/header-bg.52c98f0a.png",
+    "static/media/homeword.svg": "/starwars-library/static/media/homeword.5102a4cb.svg",
+    "static/media/logo.png": "/starwars-library/static/media/logo.46b9ea74.png",
+    "static/media/preloader.svg": "/starwars-library/static/media/preloader.32560bd5.svg",
+    "static/media/species.svg": "/starwars-library/static/media/species.772f0da5.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.27562d3c.js",
+    "static/js/2.f463eb6d.chunk.js",
+    "static/css/main.9ad37f33.chunk.css",
+    "static/js/main.33ff2b69.chunk.js"
+  ]
+}
