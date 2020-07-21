@@ -21,19 +21,25 @@ const Search = (props) => {
     return (
         <>
             <input className="search" type="text" placeholder="Search by name"
-                
-                onFocus= {() => {
+
+                onFocus={() => {
                     props.isSearching()
                 }}
 
+                onKeyPress={e => {
+                    if (e.keyCode === 13) {
+                        setSearchTerm(e.target.value)
+                    }
+                }}
+
                 onChange={e => {
-                    
+
                     setSearchTerm(e.target.value)
-                }} 
+                }}
                 onBlur={() => {
                     props.getPeoples()
                     props.isSearching()
-                    }}></input>
+                }}></input>
         </>
     )
 }

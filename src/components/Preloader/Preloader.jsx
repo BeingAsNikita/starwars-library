@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import starShip from '../../assets/img/preloader.svg';
 import './Preloader.scss'
 

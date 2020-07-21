@@ -22,12 +22,11 @@ class ContentContainer extends React.Component {
     componentDidMount() {
         if (!this.props.isSearching) {
             window.addEventListener('scroll', this.handleScroll);
-            this.props.getPeoples(this.state.page)
-
-            this.timerHandle = setTimeout(() => {
-                this.props.setInitializedSuccess()
-            }, 3000)
+            this.props.getPeoples(this.state.page)          
         }
+        this.timerHandle = setTimeout(() => {
+            this.props.setInitializedSuccess()
+        }, 3000)
 
     }
 
