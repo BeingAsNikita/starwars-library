@@ -11,8 +11,11 @@ export const API = {
     },
 
     getInfo(url) {
+
+        let newUrl = url.replace(/http/gi, 'https');
+
         try {
-            return axios.get(url)
+            return axios.get(newUrl)
         } catch (error) {
             console.log(error)
         }
