@@ -13,7 +13,7 @@
 
 }
 
-.modal-body {
+.modalBody {
     background: #1A1A1A;
     color: #ffffff;
     width: 320px;
@@ -25,6 +25,10 @@
     transition-duration: 4s;
     transition-timing-function: linear;
     border-radius: 3px;
+
+    @media (min-width: 960px) {
+        top: 5%;
+    }
 
     @media (min-width: 1200px) {
         width: 800px;
@@ -53,12 +57,12 @@
     background: none;
     border: none;
     position: absolute;
-    top: 0;
-    right: -20px;
+    top: -10px;
+    right: 0px;
     cursor: pointer;
     width: 30px;
     height: 30px;
-    
+
     &::before,
     &::after {
         content: '';
@@ -110,10 +114,34 @@
     padding-top: 10px;
     padding-bottom: 10px;
 
-    span {
-        display: block;
+    &--films {
+        .modal__item-title {
+            width: 35%;
+            align-items: flex-start;
+
+            @media (min-width: 1200px) {
+                width: 50%;
+            }
+
+            .wrap {
+                display: flex;
+                align-items: center;
+            }
+        }
     }
 
+
+}
+
+
+.modal__films-titles {
+    display: flex;
+    flex-direction: column;
+
+    span {
+        display: block;
+        margin-bottom: 3px;
+    }
 }
 
 .modal__item-title {
@@ -126,4 +154,22 @@
     img {
         margin-right: 11px;
     }
+}
+
+.modal-wrapper-enter {
+    opacity: 0;
+}
+
+.modal-wrapper-enter-active {
+    opacity: 1;
+    transition: opacity .35s ease-in;
+}
+
+.modal-wrapper-exit {
+    opacity: 1;
+}
+
+.modal-wrapper-exit-active {
+    opacity: 0;
+    transition: opacity .35s ease-in;
 }

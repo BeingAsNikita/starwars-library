@@ -12,62 +12,64 @@ const Modalbody = ({ data, closeModal }) => {
 
     return (
 
-                <div className="modal-body">
-                    <div className="modal-header">
-                        <div className='card__avatar'>{data.name[0]}</div>
-                        <p className="card__name">{data.name}</p>
-                        <button className="modal_close" onClick={closeModal}>
-                        
-                        </button>
+        <div className="modalBody">
+            <div className="modal-header">
+                <div className='card__avatar'>{data.name[0]}</div>
+                <p className="card__name">{data.name}</p>
+                <button className="modal_close" onClick={closeModal}>
+
+                </button>
+            </div>
+            <ul className="modal-footer">
+                <li className="modal__item">
+                    <div className="modal__item-title">
+                        <img src={birth_year} alt='icon' />
+                        <span>Birth year </span>
                     </div>
-                    <ul className="modal-footer">
-                        <li className="modal__item">
-                            <div className="modal__item-title">
-                                <img src={birth_year} alt='icon' />
-                                <span>Birth year </span>
-                            </div>
 
-                            <span>{data.birth_year}</span>
-                        </li>
+                    <span>{data.birth_year}</span>
+                </li>
 
-                        <li className="modal__item">
-                            <div className="modal__item-title">
-                                <img src={speciesIcon} alt='icon' />
-                                <span>species</span>
-                            </div>
-                            <span>{data.species ? data.species : "loading..."}</span>
-                        </li>
-                        <li className="modal__item">
-                            <div className="modal__item-title">
-                                <img src={gender} alt='icon' />
-                                <span>Gender </span>
-                            </div>
+                <li className="modal__item">
+                    <div className="modal__item-title">
+                        <img src={speciesIcon} alt='icon' />
+                        <span>species</span>
+                    </div>
+                    <span>{data.species ? data.species : "loading..."}</span>
+                </li>
+                <li className="modal__item">
+                    <div className="modal__item-title">
+                        <img src={gender} alt='icon' />
+                        <span>Gender </span>
+                    </div>
 
-                            <span>{data.gender}</span>
-                        </li>
-                        <li className="modal__item">
-                            <div className="modal__item-title">
-                                <img src={homeword} alt='icon' />
-                                <span>Homeworld </span>
-                            </div>
+                    <span>{data.gender}</span>
+                </li>
+                <li className="modal__item">
+                    <div className="modal__item-title">
+                        <img src={homeword} alt='icon' />
+                        <span>Homeworld </span>
+                    </div>
 
-                            <span>{ data.homeworld ? data.homeword : "loading..." }</span>
-                        </li>
-                        <li className="modal__item">
-                            <div className="modal__item-title">
-                                <img src={films} alt='icon' />
-                                <span>Films </span>
-                            </div>
+                    <span>{data.homeworld ? data.homeword : "loading..."}</span>
+                </li>
+                <li className="modal__item modal__item--films">
+                    <div className="modal__item-title">
+                        <div className="wrap">
+                            <img src={films} alt='icon' />
+                            <span>Films </span>
+                        </div>
+                    </div>
 
-                            <span>
-                                {(data.films)
-                                    ? data.films.map(film => <span key={film}>{film}</span>)
-                                    : "loading..."}
-                            </span>
-                        </li>
-                    </ul>
+                    <span className="modal__films-titles">
+                        {(data.films)
+                            ? data.films.map(film => <span key={film}>{film}</span>)
+                            : "loading..."}
+                    </span>
+                </li>
+            </ul>
 
-                </div>
+        </div>
 
     )
 }

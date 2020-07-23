@@ -20,23 +20,19 @@ class ContentContainer extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getPeoples(this.state.page)   
-        if (!this.props.isSearching) {
-            debugger
-            window.addEventListener('scroll', this.handleScroll);
-               
-        }
+        this.props.getPeoples(this.state.page)
+        window.addEventListener('scroll', this.handleScroll);
         this.timerHandle = setTimeout(() => {
             this.props.setInitializedSuccess()
         }, 3000)
 
     }
-    
+
     componentDidUpdate() {
         if (!this.props.isSearching) {
-      
+
             window.addEventListener('scroll', this.handleScroll);
-               
+
         }
     }
 
@@ -49,7 +45,7 @@ class ContentContainer extends React.Component {
     }
 
     handleScroll = (event) => {
-        if (event.target.body.getBoundingClientRect().bottom < 700) {
+        if (event.target.body.getBoundingClientRect().bottom < 700 && !this.props.isSearching) {
             console.log(event.target.body.getBoundingClientRect().bottom)
             this.handleChangePage()
         }

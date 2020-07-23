@@ -1,28 +1,41 @@
 import React from 'react';
 import '../Content/Content.scss';
+import './Transition.scss';
 import Card from '../Card/Card';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 
 
 const Content = ({ data, isLoading, setModalData, setSpeciesThunk }) => {
     return (
+        <TransitionGroup>
+            <ul className="content__card-list">
 
-        <ul className="content__card-list">
-            {
-                isLoading
-                    ? 'Please wait...'
-                    : data.map((item) => {
+                {
+                    isLoading
+                        ? 'Please wait...'
+                        : data.map((item) => {
 
-                        return <Card key={item.name}
-                        setModalData={setModalData}
-                        setSpeciesThunk={setSpeciesThunk}
-                            data={item}
-                        />
-                    })
-            }
-        </ul>
+                            return (
+                                <CSSTransition
+                                    in={true}
+                                   
+                                    key={item.name}
+                                    timeout={500}
+                                    classNames="card">
+                                    <Card key={item.name}
+                                        setModalData={setModalData}
+                                        setSpeciesThunk={setSpeciesThunk}
+                                        data={item}
+                                    />
+                                </CSSTransition>
+                            )
+                        })
+                }
 
+            </ul>
 
+        </TransitionGroup>
     )
 }
 

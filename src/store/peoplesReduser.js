@@ -11,7 +11,7 @@ let initialState = {
     data: [],
     maxPages: null,
     isLoading: true,
-    isSearching: true,
+    isSearching: false,
     films: null,
     modalIsOpen: false,
 }
@@ -27,7 +27,6 @@ const peoplesReduser = (state = initialState, action) => {
                     return !state.data.some( itemA => itemB.name === itemA.name )
                  })),
                 maxPages: Math.ceil(action.payload.total / 10),
-                films: action.payload.films
             }
 
         case IS_LOADING:
@@ -100,7 +99,7 @@ export const getDataFromSearching = (text) => {
     return async dispatch => {
          let res = await API.getPeoplesFromSearch(text) 
         dispatch(getDataFromSearchingSuccess(res.data.results))
-        dispatch(isLoading())
+        /* dispatch(isLoading()) */
     }
 }
 

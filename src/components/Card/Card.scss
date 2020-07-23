@@ -1,5 +1,5 @@
 .card {
-    width: 272px;
+    min-width: 272px;
     padding: 33px;
     margin-bottom: 24px;
     margin-right: 10px;
@@ -28,8 +28,9 @@
 
 
     @media (min-width: 800px) {
-        width: 47%;
-        padding: 92px;
+        max-width: 592px;
+        padding-top: 92px;
+        padding-bottom: 92px;
     }
 
     span {
