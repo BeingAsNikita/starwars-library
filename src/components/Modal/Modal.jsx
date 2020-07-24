@@ -19,18 +19,17 @@ const Modal = ({ data, isShow, hideModal, isLoading }) => {
 
 
     return (
-        isShow && <TransitionGroup>
-            <Portal>
+        isShow && <TransitionGroup> <Portal>
 
                 <div className="modal-wrapper" onClick={closeModal}>
                     {isLoading
                         ? <CSSTransition
-                            in={isShow}
+                            in={isLoading}
                             timeout={{
                                 enter: 500,
                                 exit: 1000
                             }}
-                            classNames="modal-wrapper">
+                            classNames="modalBody">
                             <Modalbody data={data} closeModal={closeModal} />
                         </CSSTransition>
                         : <Preloader />}

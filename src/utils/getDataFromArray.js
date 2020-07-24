@@ -10,13 +10,3 @@ export const getDataFromArray = async (arr, name) => {
 
     return 'Unknown'
 }
-
-
-export const debounce = (callback, data, delay) => {
-    debugger
-    let timeout;
-    return () => {
-        clearTimeout(timeout);
-        timeout = setTimeout(callback(data), delay);
-    }
-}

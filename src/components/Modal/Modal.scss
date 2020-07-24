@@ -156,20 +156,22 @@
     }
 }
 
-.modal-wrapper-enter {
+.modalBody-enter {
     opacity: 0;
+    transform: scale(0) rotate(180deg);
 }
 
-.modal-wrapper-enter-active {
+.modalBody-enter-active {
+    transform: scale(1) rotate(0);
     opacity: 1;
-    transition: opacity .35s ease-in;
+    transition: all .35s ease-in;
 }
 
-.modal-wrapper-exit {
+.modalBody-exit {
     opacity: 1;
 }
 
-.modal-wrapper-exit-active {
+.modalBody-exit-active {
     opacity: 0;
     transition: opacity .35s ease-in;
 }

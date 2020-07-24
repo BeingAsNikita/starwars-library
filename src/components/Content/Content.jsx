@@ -8,7 +8,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const Content = ({ data, isLoading, setModalData, setSpeciesThunk }) => {
     return (
-        <TransitionGroup>
+        <TransitionGroup className="transition__wrap">
             <ul className="content__card-list">
 
                 {

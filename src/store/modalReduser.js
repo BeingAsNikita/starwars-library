@@ -1,4 +1,4 @@
-import { getDataFromArray } from '../utils/objectsHelper';
+import { getDataFromArray } from '../utils/getDataFromArray';
 import { API } from '../API/api';
 
 

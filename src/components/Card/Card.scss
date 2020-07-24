@@ -33,6 +33,10 @@
         padding-bottom: 92px;
     }
 
+    @media (min-width: 1200px) {
+        width: 45%;
+    }
+
     span {
         margin-bottom: 10px;
     }
